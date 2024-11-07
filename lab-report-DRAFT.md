@@ -160,6 +160,53 @@ I added my **`cpplab3`** repository as a submodule to this one (**`cpplab4`**), 
 
 Remember that issue we had in exercise `1a`? Yeah we're gonna have to fix that now...
 
+The issue in question was the non-functioning `random_shuffle()` *which was deprecated in C++14*. To address the issue, I used `shuffle()` instead, which needed a random generator as a parameter.
+
+```cpp
+std::random_device rd;
+std::mt19937 generator(rd());
+std::shuffle(personRegister.begin(), personRegister.end(), generator);
+```
+
+Using `sort()` was pretty straight forward now that we have `PersonRegister::begin()` and `PersonRegister::end()`.
+
+```cpp
+std::sort(personRegister.begin(), personRegister.end()); // Easy peasy!
+```
+Output
+```
+SHUFFLED REGISTER
+----------------------------------
+Tess Addison, Englandismycity 1, 018 12 FACTS
+Rick Astley, Im Thinking Of, 012 98 YOU
+Rick Astley, And So Do I, 012 98 DOI
+Flossie Firmin, Fortenite 5, 999 99 GRIND
+Rick Astley, From Any Other, 012 98 GUY
+Kathlyn Simons, Simonsaid Lane 2, 012 34 PLACE
+Rick Astley, Were No Strangers, 012 98 TOLOVE
+Rick Astley, A Full Commitments, 012 98 WHAT
+Rick Astley, Wouldnt Get, 012 98 THIS
+Arline Ansel, Jolene road 12, 000 00 PLEASE
+Oz Janson, Wizard Tower 4, 012 35 PLACE
+Rick Astley, You Know The, 012 98 RULES
+----------------------------------
+SORTED REGISTER
+----------------------------------
+Arline Ansel, Jolene road 12, 000 00 PLEASE
+Flossie Firmin, Fortenite 5, 999 99 GRIND
+Kathlyn Simons, Simonsaid Lane 2, 012 34 PLACE
+Oz Janson, Wizard Tower 4, 012 35 PLACE
+Rick Astley, Im Thinking Of, 012 98 YOU
+Rick Astley, And So Do I, 012 98 DOI
+Rick Astley, From Any Other, 012 98 GUY
+Rick Astley, Were No Strangers, 012 98 TOLOVE
+Rick Astley, A Full Commitments, 012 98 WHAT
+Rick Astley, Wouldnt Get, 012 98 THIS
+Rick Astley, You Know The, 012 98 RULES
+Tess Addison, Englandismycity 1, 018 12 FACTS
+----------------------------------
+```
+
 ## Exercise 2b: Sorting backwards by address
 
 # Exercise 3
