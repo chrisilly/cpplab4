@@ -39,9 +39,8 @@ int main()
     //Exercise 1d
     SortRandomlyGeneratedNumbersInIntArray(descending);
 
-    // Exercise 2a
+    // Exercise 2a + 2b
     SortShuffledPersonRegister();
-
 
     _CrtSetReportMode( _CRT_WARN, _CRTDBG_MODE_DEBUG );
     _CrtDumpMemoryLeaks();

@@ -209,6 +209,43 @@ Tess Addison, Englandismycity 1, 018 12 FACTS
 
 ## Exercise 2b: Sorting backwards by address
 
+Interesting how we're influencing the behaviour of sort by adjusting our operator overload code!
+
+#### Output
+
+```
+SHUFFLED REGISTER
+----------------------------------
+Flossie Firmin, Fortenite 5, 999 99 GRIND
+Rick Astley, You Know The, 012 98 RULES
+Tess Addison, Englandismycity 1, 018 12 FACTS
+Rick Astley, Im Thinking Of, 012 98 YOU
+Rick Astley, From Any Other, 012 98 GUY
+Rick Astley, Wouldnt Get, 012 98 THIS
+Rick Astley, A Full Commitments, 012 98 WHAT
+Kathlyn Simons, Simonsaid Lane 2, 012 34 PLACE
+Oz Janson, Wizard Tower 4, 012 35 PLACE
+Rick Astley, Were No Strangers, 012 98 TOLOVE
+Arline Ansel, Jolene road 12, 000 00 PLEASE
+Rick Astley, And So Do I, 012 98 DOI
+----------------------------------
+SORTED REGISTER
+----------------------------------
+Rick Astley, You Know The, 012 98 RULES
+Rick Astley, Wouldnt Get, 012 98 THIS
+Oz Janson, Wizard Tower 4, 012 35 PLACE
+Rick Astley, Were No Strangers, 012 98 TOLOVE
+Kathlyn Simons, Simonsaid Lane 2, 012 34 PLACE
+Arline Ansel, Jolene road 12, 000 00 PLEASE
+Rick Astley, Im Thinking Of, 012 98 YOU
+Rick Astley, From Any Other, 012 98 GUY
+Flossie Firmin, Fortenite 5, 999 99 GRIND
+Tess Addison, Englandismycity 1, 018 12 FACTS
+Rick Astley, And So Do I, 012 98 DOI
+Rick Astley, A Full Commitments, 012 98 WHAT
+----------------------------------
+```
+
 # Exercise 3
 
 ---
