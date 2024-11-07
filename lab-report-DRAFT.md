@@ -39,6 +39,8 @@ for (int i = 0; i < size; i++)
 
 The problem here is that the numbers are random in a sense, but they will be the same every time the program runs because `rand()` isn't really random. But it works for our purposes, so let's move on.
 
+<!-- I realize now in hindsight that you can actually declare a vector's size: `std::vector<int> numbers(size)` -->
+
 #### SortRandomlyGeneratedNumbersInVector()
 ```cpp
 std::vector<int> randomNumbers = GetRandomNumbers();
@@ -128,6 +130,26 @@ if(descending)
     std::sort(randomNumbers + size, randomNumbers); // <-- woops
 else
     std::sort(randomNumbers, randomNumbers + size);
+```
+
+Despite my unaltered efforts, `std::begin()` and `std::end()` still don't seem to exist.
+
+Giving a function as a third parameter as the assignment instructions recommended did the trick.
+
+```cpp
+if(descending)
+{
+    auto greater = [](int x, int y){ return x>y; };
+
+    std::sort(randomNumbers, randomNumbers + size, greater);
+}
+else
+    std::sort(randomNumbers, randomNumbers + size);
+```
+Output
+```
+Random c-array Numbers: 25667 26299 17035 9894 28703 23811 31322 30333 17673 4664 15141 7711 
+Sorted c-array DESCENDING Numbers: 31322 30333 28703 26299 25667 23811 17673 17035 15141 9894 7711 4664
 ```
 
 # Exercise 2: Sorting the person register

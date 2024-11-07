@@ -34,7 +34,7 @@ int main()
     // std::random_shuffle(numbers.begin(), numbers.end()); // random shuffle doesn't exist
 }
 
-/// @brief Exercise 1a
+/// @brief Exercise 1a + 1c
 void SortRandomlyGeneratedNumbersInVector(bool descending)
 {
     // 1.
@@ -55,7 +55,7 @@ void SortRandomlyGeneratedNumbersInVector(bool descending)
     PrintNumbers(randomNumbers);
 }
 
-/// @brief Exercise 1b
+/// @brief Exercise 1b + 1d
 void SortRandomlyGeneratedNumbersInIntArray(bool descending)
 {
     // 1.
@@ -68,8 +68,9 @@ void SortRandomlyGeneratedNumbersInIntArray(bool descending)
     // 3.
     if(descending)
     {
-        // this crashes the program
-        // std::sort(randomNumbers + size, randomNumbers);
+        auto greater = [](int x, int y){ return x>y; };
+
+        std::sort(randomNumbers, randomNumbers + size, greater);
     }
     else
         std::sort(randomNumbers, randomNumbers + size);
