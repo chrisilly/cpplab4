@@ -53,10 +53,25 @@ void SortShuffledPersonRegister()
     // 1.
     PersonRegister personRegister(size);
     ReadRegister(personRegister, "SortPersonsTest.txt");
+    cout << "UNSORTED REGISTER" << endl;
     personRegister.Print();
 
     // 2.
-    // random_shuffle(personRegister);
+    // `random_shuffle` was deprecated in C++14, so I'm using `shuffle` instead, which takes a generator as a parameter
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::shuffle(personRegister.begin(), personRegister.end(), generator);
+
+    // 3.
+    cout << "SHUFFLED REGISTER" << endl;
+    personRegister.Print();
+
+    // 4.
+    std::sort(personRegister.begin(), personRegister.end());
+
+    // 5.
+    cout << "SORTED REGISTER" << endl;
+    personRegister.Print();
 }
 
 /// @brief Exercise 1a + 1c
