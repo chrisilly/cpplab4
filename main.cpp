@@ -1,6 +1,12 @@
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 #include "main.h"
 #include "Person.h"
 #include "PersonRegister.h"
+
+#include <fstream>
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -11,6 +17,7 @@
 // using namespace std;
 using std::cout;
 using std::endl;
+using std::string;
 
 const int size = 12;
 
@@ -32,8 +39,19 @@ int main()
     //Exercise 1d
     SortRandomlyGeneratedNumbersInIntArray(descending);
 
+    // Exercise 2a
+    SortShuffledPersonRegister();
 
-    // std::random_shuffle(numbers.begin(), numbers.end()); // random shuffle doesn't exist
+
+    _CrtSetReportMode( _CRT_WARN, _CRTDBG_MODE_DEBUG );
+    _CrtDumpMemoryLeaks();
+}
+
+void SortShuffledPersonRegister()
+{
+    PersonRegister personRegister(size);
+    ReadRegister(personRegister, "SortPersonsTest.txt");
+    personRegister.Print();
 }
 
 /// @brief Exercise 1a + 1c
@@ -138,4 +156,30 @@ void PrintNumbersInIntArray(int* numbers)
     for(int* pointer = numbers; pointer != numbers + size; ++pointer)
         cout << *pointer << " ";
     cout << endl;
+}
+
+bool ReadRegister(PersonRegister &personRegister, string fileName)
+{
+    string line;
+    std::ifstream myfile(fileName);
+    if (myfile.is_open())
+    {
+        while (getline(myfile, line))
+        {
+            while (line.length() == 0 && getline(myfile, line))
+                ; // what?
+            string name(line);
+            string address;
+            getline(myfile, address);
+            // Person entry(name, address);
+            personRegister.AddToRegister(&Person(name, address));
+        }
+        myfile.close();
+        return true;
+    }
+    else 
+    {
+        cout << "Unable to open file";
+        return false;
+    }
 }
