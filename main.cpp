@@ -42,11 +42,37 @@ int main()
     // Exercise 2a + 2b
     SortShuffledPersonRegister();
 
+    // Exercise 3
+    RemoveEvenNumbersFromRandomNumbers();
+
     _CrtSetReportMode( _CRT_WARN, _CRTDBG_MODE_DEBUG );
     _CrtDumpMemoryLeaks();
+
+    // std::cin;
 }
 
-/// @brief Exercise 2a
+bool Even(int i) { return i%2==0; }
+
+/// @brief Exercise 3
+void RemoveEvenNumbersFromRandomNumbers()
+{
+    // 1. Create container with random numbers
+    std::vector<int> randomNumbers = GetRandomNumbers();
+
+    // 2. Print container
+    cout << "Random ";
+    PrintNumbers(randomNumbers);
+
+    // 3. Remove even numbers with the help of STL (`remove_if` and `erase`)
+    auto result = std::remove_if(randomNumbers.begin(), randomNumbers.end(), Even);
+    randomNumbers.erase(result, randomNumbers.end());
+
+    // 4. Print container again
+    cout << "Removed EVEN ";
+    PrintNumbers(randomNumbers);
+}
+
+/// @brief Exercise 2a + 2b
 void SortShuffledPersonRegister()
 {
     // 1.

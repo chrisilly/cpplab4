@@ -8,24 +8,6 @@ Lab report for **assignment 4**
 
 ## Exercise 1a: Sorting `vector`
 
-#### Issue #1
-Ran into an issue where, even though I'm seemingly generating a new random vector every time with `rand()`, the numbers are the same each run. When debugging, it seems like `rand()` is genuinely just predictably spitting out the same numbers in the same order.
-
-> [!NOTE]
-> This is because `rand()` is not random 🙂
-
-#### Issue #2
-```cpp
-std::vector<int> numbers = GetRandomNumbers();
-numbers = GetRandomNumbers(); // this crashes the program 😳
-```
-
-#### Issue #3
-
-`std::random_shuffle` apparently does not exist despite `#include <algorithm>` 🤷
-
-### Solution
-
 To create the randomized vector:
 ```cpp
 int size = 12;
@@ -95,7 +77,7 @@ PrintNumbersInIntArray(randomNumbers);
 
 delete randomNumbers;
 ```
-Output ✅
+#### Output ✅
 ```
 Random c-array Numbers: 23281 16827 9961 491 2995 11942 4827 5436 32391 14604 3902 153 
 Sorted c-array Numbers: 153 491 2995 3902 4827 5436 9961 11942 14604 16827 23281 32391
@@ -114,7 +96,7 @@ else
 cout << "Sorted "; if(descending) cout << "DESCENDING ";
 PrintNumbers(randomNumbers);
 ```
-Output
+#### Output ✅
 ```
 Random Numbers: 292 12382 17421 18716 19718 19895 5447 21726 14771 11538 1869 19912 
 Sorted DESCENDING Numbers: 21726 19912 19895 19718 18716 17421 14771 12382 11538 5447 1869 292
@@ -146,7 +128,7 @@ if(descending)
 else
     std::sort(randomNumbers, randomNumbers + size);
 ```
-Output
+#### Output ✅
 ```
 Random c-array Numbers: 25667 26299 17035 9894 28703 23811 31322 30333 17673 4664 15141 7711 
 Sorted c-array DESCENDING Numbers: 31322 30333 28703 26299 25667 23811 17673 17035 15141 9894 7711 4664
@@ -173,7 +155,7 @@ Using `sort()` was pretty straight forward now that we have `PersonRegister::beg
 ```cpp
 std::sort(personRegister.begin(), personRegister.end()); // Easy peasy!
 ```
-Output
+#### Output ✅
 ```
 SHUFFLED REGISTER
 ----------------------------------
@@ -211,7 +193,7 @@ Tess Addison, Englandismycity 1, 018 12 FACTS
 
 Interesting how we're influencing the behaviour of sort by adjusting our operator overload code!
 
-#### Output
+#### Output ✅
 
 ```
 SHUFFLED REGISTER
@@ -248,7 +230,22 @@ Rick Astley, A Full Commitments, 012 98 WHAT
 
 # Exercise 3
 
----
+I heard on the grapevine that `erase()` and `erase_if()` are preferrable (C++20). Anyway, 
 
-# Process, Notes, Reflections
+#### RemoveEvenNumbersFromRandomNumbers()
+```cpp
+// bool Even(int i) { return i%2==0; }
 
+//...
+
+// 3. How I removed the even numbers
+auto result = std::remove_if(randomNumbers.begin(), randomNumbers.end(), Even);
+randomNumbers.erase(result, randomNumbers.end());
+
+// ...
+```
+#### Output ✅
+```
+Random Numbers: 28253 6868 25547 27644 32662 32757 20037 12859 8723 9741 27529 778
+Removed EVEN Numbers: 28253 25547 32757 20037 12859 8723 9741 27529
+```
