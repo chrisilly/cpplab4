@@ -8,18 +8,19 @@ Lab report for **assignment 4**
 
 ## Exercise 1a: Sorting `vector`
 
+#### Issue #1
 Ran into an issue where, even though I'm seemingly generating a new random vector every time with `rand()`, the numbers are the same each run. When debugging, it seems like `rand()` is genuinely just predictably spitting out the same numbers in the same order.
 
 > [!NOTE]
 > This is because `rand()` is not random in C++ 🙂
 
-#### **Issue #2**
+#### Issue #2
 ```cpp
 std::vector<int> numbers = GetRandomNumbers();
 numbers = GetRandomNumbers(); // this crashes the program 😳
 ```
 
-#### **Issue 3**
+#### Issue #3
 
 `std::random_shuffle` apparently does not exist despite `#include <algorithm>` 🤷
 
@@ -57,7 +58,7 @@ Sorted Numbers: 41 5705 6334 11478 15724 18467 19169 24464 26500 26962 28145 293
 
 ## Exercise 1b: Sorting `int[]`
 
-
+Something
 
 ## Exercise 1c: Sorting `vector` in descending order
 
