@@ -47,11 +47,16 @@ int main()
     _CrtDumpMemoryLeaks();
 }
 
+/// @brief Exercise 2a
 void SortShuffledPersonRegister()
 {
+    // 1.
     PersonRegister personRegister(size);
     ReadRegister(personRegister, "SortPersonsTest.txt");
     personRegister.Print();
+
+    // 2.
+    // random_shuffle(personRegister);
 }
 
 /// @brief Exercise 1a + 1c

@@ -156,6 +156,10 @@ Sorted c-array DESCENDING Numbers: 31322 30333 28703 26299 25667 23811 17673 170
 
 ## Exercise 2a: Sorting persons
 
+I added my **`cpplab3`** repository as a submodule to this one (**`cpplab4`**), and configured my `tasks.json` so that my program looks for header and `.cpp` files inside the `cpplab3/` subdirectory. This took about an hour of troubleshooting to get right.
+
+Remember that issue we had in exercise `1a`? Yeah we're gonna have to fix that now...
+
 ## Exercise 2b: Sorting backwards by address
 
 # Exercise 3
