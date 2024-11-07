@@ -101,7 +101,34 @@ Sorted c-array Numbers: 153 491 2995 3902 4827 5436 9961 11942 14604 16827 23281
 
 ## Exercise 1c: Sorting `vector` in descending order
 
+I added a `bool descending` parameter to my `SortRandomlyGeneratedNumbersInVector()` method, which I set to false by default (`void SortRandomlyGeneratedNumbersInVector(bool descending = false);`). Then, I simply added a simple if-statement in the method. This way, I didn't have to write a new method!
+
+```cpp
+if(descending)
+    std::sort(randomNumbers.rbegin(), randomNumbers.rend());
+else
+    std::sort(randomNumbers.begin(), randomNumbers.end());
+
+cout << "Sorted "; if(descending) cout << "DESCENDING ";
+PrintNumbers(randomNumbers);
+```
+Output
+```
+Random Numbers: 292 12382 17421 18716 19718 19895 5447 21726 14771 11538 1869 19912 
+Sorted DESCENDING Numbers: 21726 19912 19895 19718 18716 17421 14771 12382 11538 5447 1869 292
+```
+
 ## Exercise 1d: Sorting `int[]` in descending order
+
+Apparently, just swapping the arguments when `std::sort`ing the `int[]` crashes the program 👍
+
+```cpp
+if(descending)
+    // this crashes the program
+    std::sort(randomNumbers + size, randomNumbers); // <-- woops
+else
+    std::sort(randomNumbers, randomNumbers + size);
+```
 
 # Exercise 2: Sorting the person register
 

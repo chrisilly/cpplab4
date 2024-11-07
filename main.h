@@ -7,5 +7,5 @@ void PrintNumbersInIntArray(int* numbers);
 void PrintNumbers(std::vector<int> &numbers);
 void SortNumbers(std::vector<int> &numbers);
 
-void SortRandomlyGeneratedNumbersInVector();
-void SortRandomlyGeneratedNumbersInIntArray();
+void SortRandomlyGeneratedNumbersInVector(bool descending = false);
+void SortRandomlyGeneratedNumbersInIntArray(bool descending = false);

@@ -16,17 +16,26 @@ int main()
 {
     std::cout << "Hello World!" << endl;
 
+    bool descending = true;
+
     // Exercise 1a
     SortRandomlyGeneratedNumbersInVector();
 
     // Exercise 1b
     SortRandomlyGeneratedNumbersInIntArray();
 
+    // Excercise 1c
+    SortRandomlyGeneratedNumbersInVector(descending);
+
+    //Exercise 1d
+    SortRandomlyGeneratedNumbersInIntArray(descending);
+
+
     // std::random_shuffle(numbers.begin(), numbers.end()); // random shuffle doesn't exist
 }
 
 /// @brief Exercise 1a
-void SortRandomlyGeneratedNumbersInVector()
+void SortRandomlyGeneratedNumbersInVector(bool descending)
 {
     // 1.
     std::vector<int> randomNumbers = GetRandomNumbers();
@@ -36,15 +45,18 @@ void SortRandomlyGeneratedNumbersInVector()
     PrintNumbers(randomNumbers);
     
     // 3.
-    std::sort(randomNumbers.begin(), randomNumbers.end());
+    if(descending)
+        std::sort(randomNumbers.rbegin(), randomNumbers.rend());
+    else
+        std::sort(randomNumbers.begin(), randomNumbers.end());
 
     // 4.
-    cout << "Sorted ";
+    cout << "Sorted "; if(descending) cout << "DESCENDING ";
     PrintNumbers(randomNumbers);
 }
 
 /// @brief Exercise 1b
-void SortRandomlyGeneratedNumbersInIntArray()
+void SortRandomlyGeneratedNumbersInIntArray(bool descending)
 {
     // 1.
     int* randomNumbers = GetRandomIntArray();
@@ -54,10 +66,16 @@ void SortRandomlyGeneratedNumbersInIntArray()
     PrintNumbersInIntArray(randomNumbers);
 
     // 3.
-    std::sort(randomNumbers, randomNumbers + size);
+    if(descending)
+    {
+        // this crashes the program
+        // std::sort(randomNumbers + size, randomNumbers);
+    }
+    else
+        std::sort(randomNumbers, randomNumbers + size);
 
     // 4.
-    cout << "Sorted c-array ";
+    cout << "Sorted c-array "; if(descending) cout << "DESCENDING ";
     PrintNumbersInIntArray(randomNumbers);
 
     delete randomNumbers;
@@ -101,14 +119,6 @@ std::vector<int> GetNumbers()
     }
 
     return numbers;
-}
-
-void SortNumbers(std::vector<int> &numbers)
-{
-    // Sort numbers
-    // code here...
-    // Print numbers
-    PrintNumbers(numbers);
 }
 
 void PrintNumbers(std::vector<int> &numbers)
