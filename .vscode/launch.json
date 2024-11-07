@@ -14,7 +14,7 @@
             "cwd": "${fileDirname}",
             "environment": [],
             "console": "integratedTerminal",
-            "preLaunchTask": "C/C++: cl.exe build all files" // build and generate the executable before trying to run the executable
+            "preLaunchTask": "C/C++: cl.exe build all files include cpplab3" // build and generate the executable before trying to run the executable
         }
     ]
 }

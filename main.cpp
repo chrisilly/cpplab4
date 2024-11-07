@@ -1,4 +1,6 @@
 #include "main.h"
+#include "Person.h"
+#include "PersonRegister.h"
 #include <iostream>
 #include <algorithm>
 #include <vector>
